@@ -1107,7 +1107,9 @@ openApprovalOrder=id=>{editableNeedByApprovalCore(id);const order=approvalAccess
 const orderedByFields=document.createElement("div");orderedByFields.className="wide grid hidden";
 orderedByFields.innerHTML='<div class="field"><label for="orderedByName">Ordered by name <span class="req">*</span></label><input id="orderedByName" autocomplete="name"></div><div class="field"><label for="orderedByEmail">Ordered by email address <span class="req">*</span></label><input id="orderedByEmail" type="email" autocomplete="email"></div>';
 function updateOrderedByFields(){const active=$("employeeType").value==="New starter";$("needByField").after(orderedByFields);orderedByFields.classList.toggle("hidden",!active);["orderedByName","orderedByEmail"].forEach(id=>{$(id).required=active;$(id).disabled=!active})}
-$("employeeType").addEventListener("change",updateOrderedByFields);updateOrderedByFields();
+$("employeeType").addEventListener("change",updateOrderedByFields);
+$("deliveryMethod").addEventListener("change",updateOrderedByFields);
+updateOrderedByFields();
 async function ensureOrderedByColumns(){
  let definition=await getListDefinition("WorkwearOrders");
  for(const [name,displayName] of [["OrderedByName","Ordered By Name"],["OrderedByEmail","Ordered By Email"]]){
@@ -1139,7 +1141,7 @@ openOrder=id=>{orderedByOpenCore(id);const order=orders.find(order=>order.id===i
 const orderedByApprovalCore=openApprovalOrder;
 openApprovalOrder=id=>{orderedByApprovalCore(id);const order=approvalAccessOrders().find(order=>order.id===id);if(order&&!approvalOrderDetailPanel.classList.contains("hidden"))approvalOrderDetailPanel.querySelector(".panel-body")?.insertAdjacentHTML("afterbegin",'<div class="grid">'+orderedBySummary(order)+'</div>')};
 
-const appVersionLabel=document.createElement("p");appVersionLabel.className="browser-note";appVersionLabel.style.cssText="text-align:center;padding:12px";appVersionLabel.textContent="App version 2026.10.27.8";document.querySelector("main").appendChild(appVersionLabel);
+const appVersionLabel=document.createElement("p");appVersionLabel.className="browser-note";appVersionLabel.style.cssText="text-align:center;padding:12px";appVersionLabel.textContent="App version 2026.11.05.1";document.querySelector("main").appendChild(appVersionLabel);
 updateFormSignIn();initialiseM365();
 </script></body></html>
 
