@@ -335,7 +335,7 @@ systemAdminButton.onclick=()=>secureNavigate("systemAdmin");
 
 /* Microsoft 365 delegated sign-in and selected SharePoint site check.
    This browser app never stores a client secret. */
-const M365_CONFIG={clientId:"b1c401b6-841c-4359-9a1d-be677f1dabad",tenantId:"67c2185b-59fb-46fc-ba58-aea19955d196",siteId:"sysadiltd.sharepoint.com,e238674f-1ae2-47c4-a22a-0a2ac9e7f276,1866246f-15fa-4d3a-b92c-e311d70120c0",redirectUri:"https://suzanneb-adi.github.io/adi-workwear/"},M365_SCOPES=["User.Read","Sites.Selected"];
+const M365_CONFIG={clientId:"b1c401b6-841c-4359-9a1d-be677f1dabad",tenantId:"67c2185b-59fb-46fc-ba58-aea19955d196",siteId:"sysadiltd.sharepoint.com,e238674f-1ae2-47c4-a22a-0a2ac9e7f276,1866246f-15fa-4d3a-b92c-e311d70120c0",redirectUri:"https://systemsadigroup.github.io/adi-workwear/"},M365_SCOPES=["User.Read","Sites.Selected"];
 const m365Button=document.createElement("button"),m365Status=document.createElement("div");
 m365Button.className="m365-button";m365Button.textContent="Sign in with Microsoft";m365Status.className="m365-status";m365Status.innerHTML='<span class="m365-dot"></span><span id="m365StatusText">Not connected</span>';document.querySelector("header .nav").append(m365Button);document.querySelector("header .head").append(m365Status);
 let m365Client=null,m365Account=null,m365Token="";
